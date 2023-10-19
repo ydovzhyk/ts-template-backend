@@ -18,7 +18,8 @@ const register = async (req, res, next) => {
 
     const passwordHash = await bcrypt.hash(password, 10);
 
-    const today = moment().tz("Europe/Kiev").format("DD.MM.YYYY HH:mm");
+    // const today = moment().tz("Europe/Kiev").format("DD.MM.YYYY HH:mm");
+    const today = moment().tz("Europe/Kiev").format();
 
     const newUser = await User.create({
       username,
@@ -124,7 +125,7 @@ const getUserController = async (req, res, next) => {
       { lastVisit: new Date() },
       { new: true }
     );
-
+    console.log(user);
     return res.status(200).send({
       accessToken,
       refreshToken,
