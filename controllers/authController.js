@@ -125,7 +125,6 @@ const getUserController = async (req, res, next) => {
       { lastVisit: new Date() },
       { new: true }
     );
-    console.log(user);
     return res.status(200).send({
       accessToken,
       refreshToken,

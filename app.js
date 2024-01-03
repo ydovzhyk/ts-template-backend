@@ -5,7 +5,9 @@ const session = require("express-session");
 require("dotenv").config();
 
 const authRouter = require("./routes/api/auth");
+const todoRouter = require("./routes/api/todo");
 const googleRouter = require("./routes/api/google");
+const technicalRouter = require("./routes/api/technical");
 
 const { GOOGLE_CLIENT_SECRET } = process.env;
 
@@ -32,6 +34,8 @@ app.use(express.json());
 app.use("/static", express.static("public")); // For access a file
 
 app.use("/auth", authRouter);
+app.use("/todo", todoRouter);
+app.use("/technical", technicalRouter);
 
 app.use(
   "/google",

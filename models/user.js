@@ -35,6 +35,7 @@ const userSchema = new Schema(
       type: String,
       default: "/",
     },
+    todos: [{ type: Schema.Types.ObjectId, ref: "Todo" }],
   },
 
   { minimize: false }
