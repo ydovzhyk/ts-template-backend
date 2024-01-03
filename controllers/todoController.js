@@ -183,7 +183,6 @@ const synchronizeTodo = async (req, res, next) => {
         userId,
         ...todoToSave,
       });
-
       await newTodo.save();
     });
 
